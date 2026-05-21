@@ -1,0 +1,32 @@
+.btn {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.12em;
+  padding: 8px 20px;
+  border: 1px solid var(--accent); color: var(--accent);
+  background: transparent; cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:hover { background: var(--accent); color: #fff; }
+
+.wrong {
+  border-color: #ff4444; color: #ff4444;
+}
+.wrong:hover { background: #ff4444; color: #fff; }
+
+.connected { display: flex; gap: 4px; align-items: center; }
+
+.chain {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em;
+  padding: 7px 12px; border: 1px solid var(--border2);
+  background: transparent; color: var(--muted); cursor: pointer;
+  transition: all 0.2s;
+}
+.chain:hover { border-color: var(--text); color: var(--text); }
+
+.account {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em;
+  padding: 7px 14px; border: 1px solid var(--border2);
+  background: var(--bg3); color: var(--text); cursor: pointer;
+  transition: all 0.2s;
+}
+.account:hover { border-color: var(--accent); }

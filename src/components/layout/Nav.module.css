@@ -1,0 +1,74 @@
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; height: 64px;
+  background: rgba(7, 7, 9, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--sans);
+  font-size: 14px; font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  text-decoration: none;
+}
+.logo span { color: var(--accent); }
+
+.links {
+  display: flex; gap: 32px; list-style: none;
+}
+
+.link {
+  font-size: 10px; letter-spacing: 0.15em;
+  color: var(--muted); text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+  padding-bottom: 2px;
+}
+.link::after {
+  content: '';
+  position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 1px; background: var(--accent);
+  transform: scaleX(0); transition: transform 0.2s;
+}
+.link:hover { color: var(--text); }
+.link:hover::after, .active::after { transform: scaleX(1); }
+.active { color: var(--text); }
+
+.cta {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.12em; padding: 8px 20px;
+  border: 1px solid var(--accent); color: var(--accent);
+  background: transparent; cursor: pointer;
+  text-decoration: none; transition: all 0.2s;
+}
+.cta:hover { background: var(--accent); color: #fff; }
+
+.burger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; background: none; border: none; padding: 4px;
+}
+.burger span { display: block; width: 22px; height: 1px; background: var(--muted); transition: all 0.25s; }
+.burgerOpen span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+.burgerOpen span:nth-child(2) { opacity: 0; }
+.burgerOpen span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+@media (max-width: 768px) {
+  .links {
+    display: none; flex-direction: column;
+    position: fixed; top: 64px; left: 0; right: 0;
+    background: rgba(7,7,9,0.98);
+    padding: 24px 5vw; gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .links.open { display: flex; }
+  .burger { display: flex; }
+  .cta { display: none; }
+}
+
+.right {
+  display: flex; align-items: center; gap: 12px;
+}
+@media (max-width: 768px) { .right { display: none; } }

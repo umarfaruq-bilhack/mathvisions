@@ -1,0 +1,77 @@
+.widget { display: flex; flex-direction: column; gap: 0; }
+
+.progress { margin-bottom: 32px; }
+.progressLabels {
+  display: flex; justify-content: space-between;
+  font-size: 9px; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 8px;
+}
+.progressBar { width: 100%; height: 2px; background: var(--border2); }
+.progressFill { height: 100%; background: var(--accent); transition: width 1s ease; }
+
+.counterSection { margin-bottom: 28px; }
+.counterLabel { font-size: 9px; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 12px; }
+.counterRow { display: flex; align-items: center; }
+.countBtn {
+  width: 44px; height: 44px; border: 1px solid var(--border2);
+  background: transparent; color: var(--text); font-size: 18px;
+  cursor: pointer; transition: all 0.15s; display: flex;
+  align-items: center; justify-content: center; font-family: var(--mono);
+}
+.countBtn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.countBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+.countDisplay {
+  width: 80px; height: 44px;
+  border-top: 1px solid var(--border2); border-bottom: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-size: 24px; font-weight: 800;
+}
+.maxNote { font-size: 9px; color: var(--muted); margin-top: 8px; letter-spacing: 0.1em; }
+
+.priceTable { margin-bottom: 24px; }
+.priceRow {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 13px 0; border-bottom: 1px solid var(--border);
+}
+.priceRow:first-child { border-top: 1px solid var(--border); }
+.priceLabel { font-size: 9px; color: var(--muted); letter-spacing: 0.1em; }
+.priceVal { font-size: 11px; color: var(--text); }
+
+.patronAlert {
+  padding: 14px 16px; border: 1px solid rgba(240,180,41,0.3);
+  background: rgba(240,180,41,0.05); margin-bottom: 24px;
+}
+.patronAlertTitle { font-size: 9px; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 6px; font-weight: 700; }
+.patronAlertBody { font-size: 9px; color: #887755; line-height: 1.9; }
+
+.connectWrap { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 12px; }
+.connectNote { font-size: 9px; color: var(--muted); letter-spacing: 0.08em; }
+
+.notActive {
+  width: 100%; padding: 18px; text-align: center;
+  border: 1px solid var(--border); color: var(--muted);
+  font-size: 11px; letter-spacing: 0.15em; margin-bottom: 12px;
+}
+
+.success {
+  border: 1px solid rgba(111,255,202,0.3);
+  background: rgba(111,255,202,0.04);
+  padding: 20px; margin-bottom: 12px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.successTitle { font-size: 11px; color: var(--accent3); font-weight: 700; letter-spacing: 0.1em; }
+.successBody { font-size: 10px; color: var(--muted); line-height: 1.9; display: flex; flex-direction: column; gap: 6px; }
+.txLink { color: var(--accent); font-size: 9px; letter-spacing: 0.08em; text-decoration: none; }
+.txLink:hover { text-decoration: underline; }
+
+.mintBtn {
+  width: 100%; padding: 18px; background: var(--accent); color: #fff;
+  border: none; font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.15em; cursor: pointer; font-weight: 700;
+  transition: all 0.2s; margin-bottom: 12px;
+}
+.mintBtn:hover:not(:disabled) { background: #9585ff; }
+.mintBtn:active { transform: scale(0.99); }
+.mintBtnBusy { opacity: 0.7; cursor: not-allowed; animation: pulse 1.5s infinite; }
+.mintNote { font-size: 9px; color: var(--muted); text-align: center; letter-spacing: 0.08em; }
+
+@keyframes pulse { 0%,100%{opacity:0.7} 50%{opacity:1} }

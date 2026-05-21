@@ -1,0 +1,30 @@
+.section {
+  padding: 100px 5vw;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.sub {
+  font-size: 11px; color: var(--muted);
+  line-height: 2; max-width: 540px; margin-bottom: 52px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+}
+.card {
+  padding: 26px 24px; border: 1px solid var(--border);
+  background: var(--bg2); transition: border-color 0.2s, background 0.2s;
+}
+.card:hover { border-color: var(--border2); background: var(--bg3); }
+.cardTop {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 12px;
+}
+.key { font-size: 9px; letter-spacing: 0.2em; color: var(--accent); }
+.rarity { font-size: 8px; letter-spacing: 0.12em; }
+.name { font-family: var(--sans); font-size: 15px; font-weight: 800; margin-bottom: 10px; }
+.desc { font-size: 10px; color: var(--muted); line-height: 1.9; }
+.formula { font-size: 9px; color: var(--dim); margin-top: 14px; font-style: italic; letter-spacing: 0.04em; }
+
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }

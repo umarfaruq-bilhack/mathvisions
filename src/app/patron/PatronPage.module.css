@@ -1,0 +1,121 @@
+.page { padding-top: 64px; background: var(--bg); min-height: 100vh; }
+
+.hero {
+  padding: 80px 5vw 80px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.heroContent { position: relative; z-index: 1; max-width: 700px; }
+.heroSub {
+  font-size: 11px; color: var(--muted);
+  line-height: 2.1; max-width: 540px; margin-bottom: 40px; letter-spacing: 0.04em;
+}
+.heroStats { display: flex; gap: 0; flex-wrap: wrap; }
+.heroStat {
+  display: flex; flex-direction: column; gap: 5px;
+  padding: 0 32px; border-right: 1px solid var(--border);
+}
+.heroStat:first-child { padding-left: 0; }
+.heroStat:last-child { border-right: none; }
+.heroStatVal { font-family: var(--sans); font-size: 32px; font-weight: 800; color: var(--gold); }
+.heroStatLabel { font-size: 8px; letter-spacing: 0.18em; color: var(--muted); }
+
+.section {
+  padding: 80px 5vw;
+  border-top: 1px solid var(--border);
+}
+.sectionDark { background: var(--bg2); }
+
+.stepsGrid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+}
+.stepCard {
+  padding: 28px 24px; border: 1px solid var(--border);
+  background: var(--bg2); display: flex; flex-direction: column; gap: 12px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.stepCard:hover { border-color: var(--border2); background: var(--bg3); }
+.stepNum { font-family: var(--sans); font-size: 40px; font-weight: 800; color: var(--border2); line-height: 1; }
+.stepTitle { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--text); }
+.stepBody { font-size: 10px; color: var(--muted); line-height: 1.9; flex: 1; }
+.stepBadge {
+  display: inline-block; font-size: 8px; letter-spacing: 0.1em;
+  padding: 4px 10px; background: rgba(240,180,41,0.08);
+  border: 1px solid rgba(240,180,41,0.25); color: var(--gold);
+  align-self: flex-start;
+}
+
+/* Simulator */
+.simSub { font-size: 11px; color: var(--muted); line-height: 2; margin-bottom: 48px; }
+.simLayout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.simControls { display: flex; flex-direction: column; gap: 28px; }
+.simRow {}
+.simRowHeader { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.simLabel { font-size: 9px; letter-spacing: 0.15em; color: var(--muted); }
+.simVal { font-size: 10px; color: var(--text); font-weight: 700; }
+.slider {
+  width: 100%; height: 2px; accent-color: var(--accent);
+  appearance: none; background: var(--border2); cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  appearance: none; width: 14px; height: 14px;
+  background: var(--accent); border-radius: 0;
+}
+
+.simResult {
+  border: 1px solid var(--border2); padding: 28px;
+  background: var(--bg3);
+}
+.simResultLabel { font-size: 9px; letter-spacing: 0.18em; color: var(--muted); margin-bottom: 8px; }
+.simResultVal {
+  font-family: var(--sans); font-size: 48px; font-weight: 800;
+  color: var(--gold); line-height: 1; margin-bottom: 24px;
+}
+.simBreakdown { display: flex; flex-direction: column; gap: 0; }
+.simBreakRow {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  font-size: 10px; color: var(--muted); letter-spacing: 0.05em;
+}
+.simBreakRow span:last-child { color: var(--text); font-weight: 700; }
+
+/* Leaderboard */
+.lbSub { font-size: 11px; color: var(--muted); margin-bottom: 32px; line-height: 2; }
+.lbTable { display: flex; flex-direction: column; gap: 0; }
+.lbHeader {
+  display: grid; grid-template-columns: 36px 1fr 100px 120px 100px;
+  gap: 12px; padding: 10px 16px;
+  font-size: 8px; letter-spacing: 0.15em; color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.lbRow {
+  display: grid; grid-template-columns: 36px 1fr 100px 120px 100px;
+  gap: 12px; padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  align-items: center; transition: background 0.15s;
+}
+.lbRow:hover { background: var(--bg3); }
+.lbTop { border-left: 2px solid rgba(240,180,41,0.4); }
+.lbRank { font-size: 10px; color: var(--muted); text-align: center; }
+.lbRankGold { color: var(--gold); font-weight: 700; }
+.lbAddr { font-size: 10px; color: var(--text); letter-spacing: 0.05em; }
+.lbMinted { font-size: 10px; color: var(--muted); }
+.patronPill {
+  font-size: 7px; letter-spacing: 0.1em; padding: 3px 8px;
+  border: 1px solid rgba(240,180,41,0.35); color: var(--gold);
+}
+.notPatron { font-size: 10px; color: var(--dim); }
+.lbDividend { font-size: 11px; color: var(--gold); font-weight: 700; text-align: right; }
+
+@media (max-width: 900px) {
+  .stepsGrid { grid-template-columns: 1fr; }
+  .simLayout { grid-template-columns: 1fr; }
+  .lbHeader { display: none; }
+  .lbRow { grid-template-columns: 36px 1fr auto; }
+  .lbMinted, .patronPill, .notPatron { display: none; }
+  .heroStats { gap: 20px; }
+  .heroStat { border-right: none; padding: 0; }
+}

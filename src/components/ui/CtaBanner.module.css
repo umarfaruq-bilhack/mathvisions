@@ -1,0 +1,36 @@
+.section {
+  padding: 120px 5vw;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.gridBg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.25;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black, transparent);
+}
+.content { position: relative; z-index: 1; }
+.title {
+  font-family: var(--sans);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 800; line-height: 1.0;
+  letter-spacing: -0.02em; margin-bottom: 24px;
+}
+.sub {
+  font-size: 11px; color: var(--muted);
+  line-height: 2.1; max-width: 480px;
+  margin: 0 auto 44px; letter-spacing: 0.04em;
+}
+.btns {
+  display: flex; gap: 16px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 24px;
+}
+.note {
+  font-size: 9px; color: var(--muted);
+  letter-spacing: 0.12em;
+}

@@ -1,0 +1,85 @@
+.panel {
+  border: 1px solid var(--border2);
+  background: var(--bg3);
+  padding: 28px;
+}
+.panelTitle {
+  font-size: 9px; letter-spacing: 0.2em;
+  color: var(--accent); margin-bottom: 20px;
+}
+.addr {
+  font-size: 11px; color: var(--muted);
+  letter-spacing: 0.1em; margin-bottom: 24px;
+  font-family: var(--mono);
+}
+.empty {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 14px; padding: 20px 0;
+}
+.emptyNote { font-size: 9px; color: var(--muted); letter-spacing: 0.1em; }
+
+.statsGrid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; margin-bottom: 24px;
+}
+.stat {
+  padding: 14px; background: var(--bg2);
+  display: flex; flex-direction: column; gap: 5px;
+}
+.statVal { font-family: var(--sans); font-size: 20px; font-weight: 800; }
+.statLabel { font-size: 8px; color: var(--muted); letter-spacing: 0.12em; }
+
+.notPatron {
+  border: 1px solid var(--border); padding: 18px;
+  display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 16px;
+}
+.notPatronTitle { font-size: 9px; color: var(--muted); letter-spacing: 0.15em; font-weight: 700; }
+.notPatronBody { font-size: 10px; color: var(--muted); line-height: 1.9; }
+.mintLink {
+  font-size: 9px; color: var(--accent); letter-spacing: 0.12em;
+  text-decoration: none; font-weight: 700;
+}
+.mintLink:hover { text-decoration: underline; }
+
+.claimBtn {
+  width: 100%; padding: 16px; background: var(--gold); color: #000;
+  border: none; font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.15em; cursor: pointer; font-weight: 700;
+  transition: all 0.2s; margin-bottom: 16px;
+}
+.claimBtn:hover:not(:disabled) { background: #f5c84a; }
+.claimBtnBusy { opacity: 0.7; cursor: not-allowed; }
+
+.claimSuccess {
+  border: 1px solid rgba(111,255,202,0.3);
+  background: rgba(111,255,202,0.04);
+  padding: 16px; margin-bottom: 16px;
+  font-size: 11px; color: var(--accent3);
+  font-weight: 700; letter-spacing: 0.1em;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.claimSuccessNote { font-size: 9px; color: var(--muted); font-weight: 400; display: flex; gap: 12px; }
+
+.noPending {
+  border: 1px solid var(--border); padding: 16px;
+  margin-bottom: 16px; display: flex; flex-direction: column; gap: 8px;
+}
+.noPendingTitle { font-size: 9px; color: var(--muted); letter-spacing: 0.12em; font-weight: 700; }
+.noPendingBody { font-size: 10px; color: var(--muted); line-height: 1.9; }
+
+.txLink {
+  color: var(--accent); font-size: 9px;
+  text-decoration: none; letter-spacing: 0.08em;
+}
+.txLink:hover { text-decoration: underline; }
+
+.contractLink {
+  padding-top: 16px; border-top: 1px solid var(--border);
+  text-align: center;
+}
+.contractLink a {
+  font-size: 8px; color: var(--dim); letter-spacing: 0.15em;
+  text-decoration: none; transition: color 0.2s;
+}
+.contractLink a:hover { color: var(--muted); }
