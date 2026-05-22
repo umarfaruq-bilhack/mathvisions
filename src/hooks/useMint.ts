@@ -40,7 +40,7 @@ export function useMint() {
 
   const minted    = stats ? Number(stats[0]) : 0
   const remaining = stats ? Number(stats[1]) : COLLECTION.totalSupply
-  const active    = stats ? stats[5]         : false
+  const active    = stats ? stats[7]         : false
 
   async function mint() {
     if (!isConnected || !address) return
