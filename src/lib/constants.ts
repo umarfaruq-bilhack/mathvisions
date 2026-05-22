@@ -8,7 +8,7 @@ export const COLLECTION = {
   artistPct: 0.90,
   secondaryRoyalty: 0.05,
   maxPerTx: 50,
-  contract: '0x0000000000000000000000000000000000000000',
+  contract: '0xcca459b9C20F388F9675908D7b92F54223454555',
   network: 'Ethereum Mainnet',
   chainId: 1,
 }

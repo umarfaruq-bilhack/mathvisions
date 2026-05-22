@@ -2,7 +2,8 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { renderPiece } from '@/lib/engine'
-import { MOCK_STATE, COLLECTION } from '@/lib/constants'
+import { COLLECTION } from '@/lib/constants'
+import { useMint } from '@/hooks/useMint'
 import styles from './HeroSection.module.css'
 
 function useCountUp(target: number, duration = 1200) {
@@ -22,7 +23,9 @@ function useCountUp(target: number, duration = 1200) {
 
 export function HeroSection() {
   const bgRef = useRef<HTMLCanvasElement>(null)
-  const minted = useCountUp(MOCK_STATE.minted)
+  const { minted: liveMinted, remaining, active } = useMint()
+  const mintedCount = useCountUp(liveMinted)
+  const pct = (liveMinted / COLLECTION.totalSupply * 100).toFixed(1)
 
   useEffect(() => {
     const canvas = bgRef.current
@@ -39,8 +42,6 @@ export function HeroSection() {
     return () => window.removeEventListener('resize', resize)
   }, [])
 
-  const pct = (MOCK_STATE.minted / COLLECTION.totalSupply * 100).toFixed(1)
-
   return (
     <section className={styles.hero}>
       <div className={styles.gridBg} />
@@ -52,7 +53,7 @@ export function HeroSection() {
       <div className={styles.content}>
         <div className={styles.badge}>
           <span className={styles.dot} />
-          LIVE MINT — GEN.0 — {pct}% MINTED
+          {active ? 'LIVE MINT' : 'COMING SOON'} — GEN.0 — {pct}% MINTED
         </div>
 
         <h1 className={styles.title}>
@@ -70,7 +71,7 @@ export function HeroSection() {
 
         <div className={styles.stats}>
           <div className={styles.stat}>
-            <span className={styles.statVal}>{minted.toLocaleString()}</span>
+            <span className={styles.statVal}>{mintedCount.toLocaleString()}</span>
             <span className={styles.statLabel}>MINTED</span>
           </div>
           <div className={styles.statDivider} />
@@ -86,9 +87,9 @@ export function HeroSection() {
           <div className={styles.statDivider} />
           <div className={styles.stat}>
             <span className={styles.statVal} style={{ color: 'var(--gold)' }}>
-              ${MOCK_STATE.patronPool.toFixed(2)}
+              {remaining.toLocaleString()}
             </span>
-            <span className={styles.statLabel}>PATRON POOL</span>
+            <span className={styles.statLabel}>REMAINING</span>
           </div>
         </div>
 
