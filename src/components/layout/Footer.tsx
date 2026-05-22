@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import styles from './Footer.module.css'
 
+const CONTRACT = '0x3B3A770e6529C0195B9894902e18062A014293E6'
+
 export function Footer() {
   return (
     <footer className={styles.footer}>
@@ -17,41 +19,37 @@ export function Footer() {
             <a href="#" className={styles.social}>GITHUB</a>
           </div>
         </div>
-
         <div>
           <div className={styles.colTitle}>COLLECTION</div>
           <ul className={styles.colLinks}>
             <li><Link href="/gallery">Gallery</Link></li>
             <li><Link href="/mint">Mint</Link></li>
             <li><Link href="/about">Algorithms</Link></li>
-            <li><a href="#">OpenSea ↗</a></li>
+            <li><a href="https://opensea.io/collection/mathematical-visions" target="_blank" rel="noreferrer">OpenSea ↗</a></li>
           </ul>
         </div>
-
         <div>
           <div className={styles.colTitle}>PATRON</div>
           <ul className={styles.colLinks}>
             <li><Link href="/patron">How It Works</Link></li>
             <li><Link href="/patron#leaderboard">Leaderboard</Link></li>
-            <li><a href="#">Claim Dividends</a></li>
-            <li><a href="#">Smart Contract ↗</a></li>
+            <li><Link href="/patron">Claim Dividends</Link></li>
+            <li><a href={`https://etherscan.io/address/${CONTRACT}`} target="_blank" rel="noreferrer">Smart Contract ↗</a></li>
           </ul>
         </div>
-
         <div>
           <div className={styles.colTitle}>RESOURCES</div>
           <ul className={styles.colLinks}>
-            <li><a href="#">Etherscan ↗</a></li>
+            <li><a href={`https://etherscan.io/address/${CONTRACT}`} target="_blank" rel="noreferrer">Etherscan ↗</a></li>
             <li><a href="#">Whitepaper</a></li>
             <li><a href="#">Audit Report</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
         </div>
       </div>
-
       <div className={styles.bottom}>
         <span>© 2026 MATHEMATICAL VISIONS — ALL RIGHTS RESERVED</span>
-        <span>CONTRACT: 0x0000...0000 · ETH MAINNET</span>
+        <span>CONTRACT: {CONTRACT.slice(0,6)}...{CONTRACT.slice(-4)} · ETH MAINNET</span>
       </div>
     </footer>
   )
