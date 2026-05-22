@@ -39,7 +39,7 @@ export default function PatronPage() {
           </p>
           <div className={styles.heroStats}>
             {[
-              { val: poolEth > 0 ? `${poolEth.toFixed(4)} ETH` : '0.0000 ETH', label: 'CURRENT POOL' },
+              { val: poolEth > 0 ? `${poolEth.toFixed(6)} ETH` : '0.0000 ETH', label: 'CURRENT POOL' },
               { val: '10%',  label: 'POOL SHARE'             },
               { val: '10',   label: 'MIN. MINTS FOR PATRON'  },
               { val: '∞',    label: 'CLAIM WINDOW'           },
