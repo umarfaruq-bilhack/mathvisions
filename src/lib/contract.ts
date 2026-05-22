@@ -1,10 +1,10 @@
 // Contract addresses per network
 export const CONTRACTS = {
   sepolia: '0xcca459b9C20F388F9675908D7b92F54223454555',
-  mainnet: '', // fill after mainnet deploy
+  mainnet: '0x3B3A770e6529C0195B9894902e18062A014293E6',
 } as const
 
-export const CONTRACT_ADDRESS = CONTRACTS.sepolia // change to mainnet for launch
+export const CONTRACT_ADDRESS = CONTRACTS.mainnet // change to mainnet for launch
 
 // Minimal ABI — only the functions the frontend needs
 export const ABI = [
