@@ -109,7 +109,7 @@ export default function PatronPage() {
               { label: 'TOTAL PATRON MINTS', min: 10, max: 2000, step: 10, val: simPatrons, set: setSimPatrons },
             ].map(ctrl => (
               <div key={ctrl.label} className={styles.simRow}>
-                <div className={ctrl.label} className={styles.simRowHeader}>
+                <div className={styles.simRowHeader}>
                   <span className={styles.simLabel}>{ctrl.label}</span>
                   <span className={styles.simVal}>{ctrl.val.toLocaleString()}</span>
                 </div>
