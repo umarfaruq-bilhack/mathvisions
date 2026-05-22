@@ -1,13 +1,19 @@
 'use client'
 import { useState }          from 'react'
 import { PatronDashboard }   from '@/components/web3/PatronDashboard'
-import { LEADERBOARD, COLLECTION, MOCK_STATE } from '@/lib/constants'
+import { COLLECTION }        from '@/lib/constants'
+import { useMint }           from '@/hooks/useMint'
+import { formatEther }       from 'viem'
 import styles                from './PatronPage.module.css'
 
 export default function PatronPage() {
   const [simMints,   setSimMints]   = useState(5000)
   const [simYours,   setSimYours]   = useState(20)
   const [simPatrons, setSimPatrons] = useState(200)
+
+  const { stats } = useMint() as any
+  const poolWei   = stats ? stats[2] : BigInt(0)
+  const poolEth   = parseFloat(formatEther(poolWei ?? BigInt(0)))
 
   const pool  = simMints * COLLECTION.mintPrice * COLLECTION.patronPoolPct
   const share = (simYours / Math.max(simPatrons, simYours)) * pool
@@ -27,7 +33,7 @@ export default function PatronPage() {
           </p>
           <div className={styles.heroStats}>
             {[
-              { val: `$${MOCK_STATE.patronPool.toFixed(2)}`, label: 'CURRENT POOL' },
+              { val: `${poolEth.toFixed(4)} ETH`, label: 'CURRENT POOL' },
               { val: '10%',  label: 'POOL SHARE'             },
               { val: '10',   label: 'MIN. MINTS FOR PATRON'  },
               { val: '∞',    label: 'CLAIM WINDOW'           },
@@ -147,15 +153,9 @@ export default function PatronPage() {
           <div className={styles.lbHeader}>
             <span>#</span><span>WALLET</span><span>MINTED</span><span>STATUS</span><span>DIVIDEND</span>
           </div>
-          {LEADERBOARD.map((row, i) => (
-            <div key={i} className={`${styles.lbRow} ${i < 3 ? styles.lbTop : ''}`}>
-              <span className={`${styles.lbRank} ${i < 3 ? styles.lbRankGold : ''}`}>{i + 1}</span>
-              <span className={styles.lbAddr}>{row.addr}</span>
-              <span className={styles.lbMinted}>{row.minted}</span>
-              <span>{row.patron ? <span className={styles.patronPill}>EARLY PATRON</span> : <span className={styles.notPatron}>—</span>}</span>
-              <span className={styles.lbDividend}>{row.dividend > 0 ? `$${row.dividend.toFixed(2)}` : '—'}</span>
-            </div>
-          ))}
+          <div style={{ padding: '60px 24px', textAlign: 'center', color: 'var(--muted)', letterSpacing: '0.1em', fontSize: 13 }}>
+            NO PATRONS YET — MINT 10+ PIECES TO CLAIM THE #1 SPOT
+          </div>
         </div>
       </section>
     </div>
