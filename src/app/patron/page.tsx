@@ -1,8 +1,9 @@
 'use client'
 import { useState }          from 'react'
+import { useReadContract }   from 'wagmi'
 import { PatronDashboard }   from '@/components/web3/PatronDashboard'
 import { COLLECTION }        from '@/lib/constants'
-import { useMint }           from '@/hooks/useMint'
+import { ABI, CONTRACT_ADDRESS } from '@/lib/contract'
 import { formatEther }       from 'viem'
 import styles                from './PatronPage.module.css'
 
@@ -11,9 +12,14 @@ export default function PatronPage() {
   const [simYours,   setSimYours]   = useState(20)
   const [simPatrons, setSimPatrons] = useState(200)
 
-  const { stats } = useMint() as any
-  const poolWei   = stats ? stats[2] : BigInt(0)
-  const poolEth   = parseFloat(formatEther(poolWei ?? BigInt(0)))
+  const { data: stats } = useReadContract({
+    address:      CONTRACT_ADDRESS as `0x${string}`,
+    abi:          ABI,
+    functionName: 'collectionStats',
+  })
+
+  const poolWei = stats ? (stats as any)[2] : BigInt(0)
+  const poolEth = parseFloat(formatEther(poolWei ?? BigInt(0)))
 
   const pool  = simMints * COLLECTION.mintPrice * COLLECTION.patronPoolPct
   const share = (simYours / Math.max(simPatrons, simYours)) * pool
@@ -33,7 +39,7 @@ export default function PatronPage() {
           </p>
           <div className={styles.heroStats}>
             {[
-              { val: `${poolEth.toFixed(4)} ETH`, label: 'CURRENT POOL' },
+              { val: poolEth > 0 ? `${poolEth.toFixed(4)} ETH` : '0.0000 ETH', label: 'CURRENT POOL' },
               { val: '10%',  label: 'POOL SHARE'             },
               { val: '10',   label: 'MIN. MINTS FOR PATRON'  },
               { val: '∞',    label: 'CLAIM WINDOW'           },
@@ -103,7 +109,7 @@ export default function PatronPage() {
               { label: 'TOTAL PATRON MINTS', min: 10, max: 2000, step: 10, val: simPatrons, set: setSimPatrons },
             ].map(ctrl => (
               <div key={ctrl.label} className={styles.simRow}>
-                <div className={styles.simRowHeader}>
+                <div className={ctrl.label} className={styles.simRowHeader}>
                   <span className={styles.simLabel}>{ctrl.label}</span>
                   <span className={styles.simVal}>{ctrl.val.toLocaleString()}</span>
                 </div>
@@ -133,7 +139,7 @@ export default function PatronPage() {
               ].map(row => (
                 <div key={row.label} className={styles.simBreakRow}>
                   <span>{row.label}</span>
-                  <span style={{ color: row.green ? 'var(--accent3)' : undefined }}>{row.val}</span>
+                  <span style={{ color: (row as any).green ? 'var(--accent3)' : undefined }}>{row.val}</span>
                 </div>
               ))}
             </div>
