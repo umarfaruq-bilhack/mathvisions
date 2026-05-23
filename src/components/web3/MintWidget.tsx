@@ -103,7 +103,7 @@ export function MintWidget() {
           <div className={styles.successBody}>
             Your piece is on-chain forever.
             <a
-              href={`https://sepolia.etherscan.io/tx/${txHash}`}
+              href={`https://etherscan.io/tx/${txHash}`}
               target="_blank" rel="noreferrer"
               className={styles.txLink}
             >
