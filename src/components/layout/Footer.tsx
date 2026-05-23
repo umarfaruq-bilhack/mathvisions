@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from './Footer.module.css'
 
-const CONTRACT = '0xA86b9C9Ffe77B291bb2D33C2dc67ccBF7BD8f2Cc'
+const CONTRACT = '0x98fc2C629995b24D2E2A55F65617636A4794B7F3'
 
 export function Footer() {
   return (
