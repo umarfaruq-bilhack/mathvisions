@@ -11,8 +11,8 @@
   font-size: 11px; color: var(--muted);
   line-height: 2.1; max-width: 540px; margin-bottom: 40px; letter-spacing: 0.04em;
 }
-.heroStats { display: flex; gap: 0; flex-wrap: wrap; }
-.heroStat {
+.heroStats { display: flex; gap: 0; flex-wrap: nowrap; width: 100%; }
+.heroStat { flex: 1;
   display: flex; flex-direction: column; gap: 5px;
   padding: 0 32px; border-right: 1px solid var(--border);
 }
@@ -117,5 +117,5 @@
   .lbRow { grid-template-columns: 36px 1fr auto; }
   .lbMinted, .patronPill, .notPatron { display: none; }
   .heroStats { gap: 20px; }
-  .heroStat { border-right: none; padding: 0; }
+  .heroStat { flex: 1; border-right: none; padding: 0; }
 }
