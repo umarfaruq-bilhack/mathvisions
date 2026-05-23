@@ -1,7 +1,7 @@
 // Contract addresses per network
 export const CONTRACTS = {
   sepolia: '0xcca459b9C20F388F9675908D7b92F54223454555',
-  mainnet: '0xd87CBF78E9010d4c9e5a954558fb6463AAc67b4d',
+  mainnet: '0xF4A094e6fA4af9012bD08979a201d2DFDd4e97F9',
 } as const
 
 export const CONTRACT_ADDRESS = CONTRACTS.mainnet // change to mainnet for launch
