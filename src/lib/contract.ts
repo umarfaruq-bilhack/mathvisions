@@ -18,7 +18,7 @@ export const ABI = [
   },
   // Claim dividend
   {
-    name: 'claimDividend',
+    name: 'claimPatronDividend',
     type: 'function',
     stateMutability: 'nonpayable',
     inputs: [],

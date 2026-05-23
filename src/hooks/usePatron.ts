@@ -33,7 +33,7 @@ export function usePatron() {
     const hash = await writeContractAsync({
       address:      CONTRACT_ADDRESS as `0x${string}`,
       abi:          ABI,
-      functionName: 'claimDividend',
+      functionName: 'claimPatronDividend',
     })
     setTxHash(hash)
     return hash
